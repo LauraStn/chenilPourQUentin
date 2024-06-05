@@ -1,3 +1,4 @@
+import { animalProps } from '@/utils/types';
 import axios from 'axios';
 
 export async function getAllAnimals() {
@@ -5,17 +6,7 @@ export async function getAllAnimals() {
   return axios.get(url).then((res) => res.data);
 }
 
-export type NewAnimalType = {
-  name: string;
-  arrival: string;
-  departure: string;
-  boxId: string;
-  image: string;
-  categoryId: string;
-  ownerId: string;
-};
-
-export async function postNewAnimal(data: NewAnimalType) {
+export async function postNewAnimal(data: animalProps) {
   const url = ``;
   const axiosConfig: any = {
     headers: {

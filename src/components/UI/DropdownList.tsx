@@ -1,3 +1,4 @@
+'use client';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
@@ -14,7 +15,10 @@ const DropdownList = ({
   if (!isActive) {
     return (
       <div>
-        <button onClick={() => setIsActive(true)}>
+        <button
+          className=" border rounded w-full py-2 px-3 text-grey-darker"
+          onClick={() => setIsActive(true)}
+        >
           {content}
           {' v'}
         </button>
@@ -25,7 +29,10 @@ const DropdownList = ({
   if (isActive) {
     return (
       <div>
-        <button onClick={() => setIsActive(false)}>
+        <button
+          className=" border rounded w-full py-2 px-3 text-grey-darker"
+          onClick={() => setIsActive(false)}
+        >
           {content}
           {' ^'}
         </button>
@@ -33,7 +40,7 @@ const DropdownList = ({
           {listContent.map((element: string) => {
             return (
               <li
-                className="flex cursor-pointer border-t-2 bg-slate-300 px-10"
+                className=" border w-full py-2 px-3 text-grey-darker"
                 key={element}
                 onClick={() => {
                   router.push('/#');

@@ -14,3 +14,13 @@ export type animalProps = {
   ownerId: string;
   categoryId: string;
 };
+
+export type NewAnimalType = {
+  name: string;
+  arrival: string;
+  departure: string;
+  boxId: string;
+  image: string;
+  categoryId: string;
+  ownerId: string;
+};

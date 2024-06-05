@@ -8,9 +8,8 @@ const DropdownList = ({
   content: string;
   listContent: any;
 }) => {
-  const [isActive, setIsActive] = useState(false);
-
   const router = useRouter();
+  const [isActive, setIsActive] = useState(false);
 
   if (!isActive) {
     return (

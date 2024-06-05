@@ -5,7 +5,7 @@ export type registerProps = {
 };
 
 export type animalProps = {
-  id: string;
+  id?: string;
   name: string;
   arrival: string;
   departure: string;
@@ -13,14 +13,4 @@ export type animalProps = {
   boxId: string;
   ownerId: string;
   categoryId: string;
-};
-
-export type NewAnimalType = {
-  name: string;
-  arrival: string;
-  departure: string;
-  boxId: string;
-  image: string;
-  categoryId: string;
-  ownerId: string;
 };

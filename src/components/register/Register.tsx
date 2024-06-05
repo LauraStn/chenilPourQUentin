@@ -1,28 +1,21 @@
+"use client";
+import { register } from "@/services/register/register";
 import { registerProps } from "@/utils/types";
 import axios from "axios";
-import React from "react";
+import React, { FormEvent } from "react";
 
 const Register = () => {
-  async function register(registerProps: registerProps) {
-    let url = `https://kennel-api-b46f3e223574.herokuapp.com/auth/signup`;
-
-    let axiosConfig = {
-      headers: {
-        "content-type": "application/x-www-form-urlencoded;charset=utf-8",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      },
-    };
-    return axios.post(
-      url,
-      {
-        email: registerProps.email,
-        password: registerProps.password,
-        name: registerProps.name,
-      },
-      axiosConfig
-    );
-  }
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    console.log(formData.get("name"));
+    const response = await register({
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      password: formData.get("password") as string,
+    });
+    console.log(response);
+  };
   return (
     <section className="min-h-screen flex items-stretch text-white ">
       <div className="lg:flex w-1/2 hidden bg-register bg-gray-500 bg-no-repeat bg-cover relative items-center">
@@ -95,7 +88,11 @@ const Register = () => {
             </svg>
           </h1>
 
-          <form action="" className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+          <form
+            action=""
+            onSubmit={handleSubmit}
+            className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto"
+          >
             <div className="pb-2 pt-4">
               <input
                 className="block w-full p-4 text-lg rounded-sm bg-black"

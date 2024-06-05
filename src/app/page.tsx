@@ -1,5 +1,29 @@
+import Header from "@/components/Header/Header";
+import Card from "@/components/card/Card";
+import Wrapper from "@/components/wrapper/Wrapper";
+import { useState } from "react";
+
 export default function Home() {
+  const [animalsList, setAnimalsList] = useState([]);
+
+  // useEffect(()=>{
+  //   getAllAnimals.then((res)=>setAnimalsList(res))
+  // },[])
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+    <main>
+      <Header />
+      <Wrapper>
+        <Card
+          id={""}
+          name={""}
+          arrival={""}
+          departure={""}
+          image={""}
+          boxId={""}
+          ownerId={""}
+          categoryId={""}
+        />
+      </Wrapper>
+    </main>
   );
 }

@@ -8,13 +8,12 @@ const Register = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    console.log(formData.get("name"));
-    const response = await register({
+    const registerProps = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
       password: formData.get("password") as string,
-    });
-    console.log(response);
+    };
+    const response = await register(registerProps);
   };
   return (
     <section className="min-h-screen flex items-stretch text-white ">

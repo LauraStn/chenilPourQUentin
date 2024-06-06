@@ -15,7 +15,6 @@ const Register = () => {
       password: formData.get('password') as string,
     });
     console.log(response);
-    // window.localStorage.setItem('jwt', response.access_token);
   };
   return (
     <section className="min-h-screen flex items-stretch text-white ">

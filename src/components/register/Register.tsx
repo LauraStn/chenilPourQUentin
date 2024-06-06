@@ -1,20 +1,21 @@
-"use client";
-import { register } from "@/services/register/register";
-import { registerProps } from "@/utils/types";
-import axios from "axios";
-import React, { FormEvent } from "react";
+'use client';
+import { register } from '@/services/register/register';
+import { registerProps } from '@/utils/types';
+import axios from 'axios';
+import React, { FormEvent } from 'react';
 
 const Register = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    console.log(formData.get("name"));
+    console.log(formData.get('name'));
     const response = await register({
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      password: formData.get("password") as string,
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      password: formData.get('password') as string,
     });
     console.log(response);
+    // window.localStorage.setItem('jwt', response.access_token);
   };
   return (
     <section className="min-h-screen flex items-stretch text-white ">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DropdownList from './UI/DropdownList';
 import { InputForm } from './UI/InputForm';
+import { getAllBox, postNewAnimal } from '@/services/apiChenil';
 
 const AnimalRegister = () => {
   const [animalName, setAnimalName] = useState('');
@@ -9,8 +10,18 @@ const AnimalRegister = () => {
   const [image, setImage] = useState('');
 
   useEffect(() => {
-    console.log(animalName);
-  }, [animalName]);
+    const jwt: string | any = localStorage.getItem('jwt');
+    getAllBox(jwt);
+  }, []);
+
+  useEffect(() => {
+    console.log({
+      animalName: animalName,
+      arrivalDate: arrivalDate,
+      departureDate: departureDate,
+      image: image,
+    });
+  }, [animalName, arrivalDate, departureDate, image]);
   return (
     <div className="w-full bg-grey-500">
       <div className="container mx-auto py-8">

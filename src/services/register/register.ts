@@ -1,7 +1,7 @@
 // export async function register(registerProps: registerProps) {
 
-import { registerProps } from "@/utils/types";
-import axios from "axios";
+import { registerProps } from '@/utils/types';
+import axios from 'axios';
 
 //   }
 
@@ -10,18 +10,22 @@ export const register = async (registerProps: registerProps) => {
 
   let axiosConfig = {
     headers: {
-      "content-type": "application/x-www-form-urlencoded;charset=utf-8",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     },
   };
-  return axios.post(
-    url,
-    {
-      email: registerProps.email,
-      password: registerProps.password,
-      name: registerProps.name,
-    },
-    axiosConfig
-  );
+  return axios
+    .post(
+      url,
+      {
+        email: registerProps.email,
+        password: registerProps.password,
+        name: registerProps.name,
+      },
+      axiosConfig
+    )
+    .then((data) => {
+      console.log(data);
+    });
 };

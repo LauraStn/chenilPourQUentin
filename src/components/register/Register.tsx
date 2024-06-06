@@ -2,9 +2,11 @@
 import { register } from "@/services/register/register";
 import { registerProps } from "@/utils/types";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import React, { FormEvent } from "react";
 
 const Register = () => {
+  const { push } = useRouter();
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -14,6 +16,12 @@ const Register = () => {
       password: formData.get("password") as string,
     };
     const response = await register(registerProps);
+    if (response.status === 201) {
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("token", response.data.access_token);
+        push("/");
+      }
+    }
   };
   return (
     <section className="min-h-screen flex items-stretch text-white ">

@@ -1,9 +1,9 @@
-"use client";
-import { register } from "@/services/register/register";
-import { registerProps } from "@/utils/types";
-import axios from "axios";
-import { useRouter } from "next/navigation";
-import React, { FormEvent } from "react";
+'use client';
+import { register } from '@/services/register/register';
+import { registerProps } from '@/utils/types';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import React, { FormEvent } from 'react';
 
 const Register = () => {
   const { push } = useRouter();
@@ -11,15 +11,15 @@ const Register = () => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const registerProps = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      password: formData.get("password") as string,
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      password: formData.get('password') as string,
     };
     const response = await register(registerProps);
     if (response.status === 201) {
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem("token", response.data.access_token);
-        push("/");
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem('token', response.data.access_token);
+        push('/');
       }
     }
   };

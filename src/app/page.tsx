@@ -1,10 +1,10 @@
-"use client";
-import Header from "@/components/Header/Header";
-import Card from "@/components/card/Card";
-import Wrapper from "@/components/wrapper/Wrapper";
-import { getAllAnimals } from "@/services/apiChenil";
-import { animalProps } from "@/utils/types";
-import { useEffect, useState } from "react";
+'use client';
+import Header from '@/components/Header/Header';
+import Card from '@/components/card/Card';
+import Wrapper from '@/components/wrapper/Wrapper';
+import { getAllAnimals } from '@/services/apiChenil';
+import { animalProps } from '@/utils/types';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [animalsList, setAnimalsList] = useState<animalProps[]>([]);

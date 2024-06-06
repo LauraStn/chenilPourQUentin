@@ -17,7 +17,7 @@ export type boxProps = {
   name: string;
 };
 export type animalProps = {
-  id: string;
+  id?: string;
   name: string;
   arrival: string;
   departure: string;
